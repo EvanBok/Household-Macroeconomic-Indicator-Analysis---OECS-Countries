@@ -9,11 +9,11 @@ ggplot(data=hh_budget, aes(x=Year))+
   geom_vline(xintercept = 2008, color="red", linetype="dashed")+
   facet_wrap(~Country)+
   labs(title="2008 Financial Crisis Debt vs Savings Comparison", y=NULL)
-  
----------------
-  
-  2. Is there a lagged relationship between household debt levels and unemployment — does rising debt predict unemployment increases 1–2 years later, or is causality more likely reversed?
- 
+
+# ============================================================
+Research Question 2: Is there a lagged relationship between household debt levels and unemployment — does rising debt predict unemployment increases 1–2 years later, or is causality more likely reversed?
+# ============================================================
+
 #Create a df that shows a side-by-side comparison of current year debt compared to debt to the previous two years
   #This code shows a wide table showing debt from the previous two years (debt_lag1 and debt_lag2) - we use this to feed into our regression model because models want each variable as its own column
 hh_lagged <- hh_budget |> 
@@ -70,9 +70,10 @@ summary(model_reverse)
   #This suggests that in this data set and time frame debt and unemployment don't have a strong causal relationship in either direction, any relationship between the two may be driven by a third factor
   #The null result doesn't completely rule out a relationship between debt and unemployment - it's likely that their relationship is non-linear, driven by third factor (e.g macroeconomic shocks) or that the sample size of 4 countries lacks power to detect significant effects.
 
----------------
-  
-  3. Does household wealth help explain why some countries' spending stays stable when income changes, while other countries' spending closely tracks income ups and downs?
+# ============================================================
+Research Question 3: Does household wealth help explain why some countries' spending stays stable when income changes, while other countries' spending closely tracks income ups and downs?
+# ============================================================
+
 #need to make the df long to plot it
 hh_long <- hh_budget |> 
   select(Year, Country, Expenditure, DI) |> 
