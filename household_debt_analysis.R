@@ -1,4 +1,6 @@
-1. Did the 2008 financial crisis structurally change the relationship between household debt and savings behavior across OECD countries?
+# ============================================================
+Research Question 1: Did the 2008 financial crisis structurally change the relationship between household debt and savings behavior across OECD countries?
+# ============================================================
   #DEBT: Australia and Canada's debt rose higher, USA's dropped significantly, and Japans dropped a little but stayed stable
   #SAVINGS: All stayed relatively stable
   
