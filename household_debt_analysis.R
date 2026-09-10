@@ -85,19 +85,13 @@ ggplot(hh_long, aes(x=Year, y=value, color=variable))+
   facet_wrap(~Country)+
   labs(title="Expenditure vs Disposable Income Change by Country", x=NULL, y=NULL)
 
-#STEP 3: create a table to show average wealth, DI, and expenditure for each country. This allows us to compare each countries average wealth to their expenditure and disposable income to see if these change compared to their wealth.
+#create a table to show average wealth, DI, and expenditure for each country. This allows us to compare each countries average wealth to their expenditure and disposable income to see if these change compared to their wealth.
 hh_budget |> 
   group_by(Country, Year) |> 
   summarize(avg_wealth=mean(Wealth), avg_DI=mean(DI), avg_exp=mean(Expenditure)) |> 
   arrange(desc(Year)) |> 
   print(n=100)
 
-#test code
-hh_budget |> 
-  group_by(Country) |> 
-  summarize(avg_wealth=mean(Wealth), avg_DI=mean(DI), avg_exp=mean(Expenditure)) |> 
-  arrange(desc(avg_wealth))
-#Real code
 #this code calculates a correlation coefficient for each country, telling us how closely Expenditure tracks DI over time. 
   #Correlation values near 1 mean spending closely tracks income changes, values near 0 means spending stays more stable despite income changes.
 #It is also representative of the graph above
